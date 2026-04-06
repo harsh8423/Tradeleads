@@ -1,0 +1,7 @@
+aiohttp==3.9.5
+asyncpg==0.29.0
+beautifulsoup4==4.12.3
+lxml==5.2.1
+psycopg2-binary==2.9.9
+phonenumbers>=8.13.0
+spacy>=3.7.0
