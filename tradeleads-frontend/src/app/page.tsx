@@ -6,7 +6,7 @@ import { SearchPanel } from "../components/SearchPanel";
 import { LeadCard } from "../components/LeadCard";
 import { SavedDrawer } from "../components/SavedDrawer";
 
-const API = "http://localhost:8000";
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export default function Home() {
   const [aiMode, setAiMode] = useState(true);
