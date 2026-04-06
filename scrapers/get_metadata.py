@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 
 # ── Config ─────────────────────────────────────────────
 DB_PATH            = r"E:\domains.db"
-ALLOWED_CATEGORIES = ["commodity"]  # ["logistics", "exim", "commodity"]
+ALLOWED_CATEGORIES = ["logistics", "exim", "commodity"]
 
 CONCURRENCY        = 1000        # stable — 150 proven, 1000 crashes event loop
 CONNECT_TIMEOUT    = 12         # seconds to establish TCP connection

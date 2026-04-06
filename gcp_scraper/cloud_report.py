@@ -1,18 +1,25 @@
 import asyncio
 import asyncpg
 import os
+import ssl
 
 PG_HOST     = os.environ.get("PG_HOST", "34.93.217.19")
 PG_DB       = os.environ.get("PG_DB", "domains")
 PG_USER     = os.environ.get("PG_USER", "scraper")
-PG_PASSWORD = os.environ.get("PG_PASSWORD")
+PG_PASSWORD = os.environ.get("PG_PASSWORD", "Custarea@1")
 PG_PORT     = int(os.environ.get("PG_PORT", "5432"))
 
 async def run_report():
     print(f"Connecting to Cloud SQL at {PG_HOST}...")
+    
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    
     conn = await asyncpg.connect(
         host=PG_HOST, port=PG_PORT, database=PG_DB,
-        user=PG_USER, password=PG_PASSWORD
+        user=PG_USER, password=PG_PASSWORD,
+        ssl=ctx
     )
     
     print("\n============================================================")

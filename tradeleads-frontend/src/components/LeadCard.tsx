@@ -95,22 +95,22 @@ export function LeadCard({
 
             <div className="card-contacts-row">
                 {card.email_count > 0 && (
-                    <div className="contact-badge email">
+                    <div className="contact-badge email" onClick={(e) => { e.stopPropagation(); setShowAllContacts(true); }}>
                         📧 {card.email_count} Email{card.email_count > 1 ? "s" : ""}
                     </div>
                 )}
                 {card.phone_count > 0 && (
-                    <div className="contact-badge phone">
+                    <div className="contact-badge phone" onClick={(e) => { e.stopPropagation(); setShowAllContacts(true); }}>
                         📞 {card.phone_count} Phone{card.phone_count > 1 ? "s" : ""}
                     </div>
                 )}
                 {card.linkedin_count > 0 && (
-                    <div className="contact-badge linkedin">
+                    <div className="contact-badge linkedin" onClick={(e) => { e.stopPropagation(); setShowAllContacts(true); }}>
                         🔗 LinkedIn
                     </div>
                 )}
                 {card.social_count > 0 && (
-                    <div className="contact-badge social">
+                    <div className="contact-badge social" onClick={(e) => { e.stopPropagation(); setShowAllContacts(true); }}>
                         🌐 {card.social_count} Social
                     </div>
                 )}

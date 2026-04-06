@@ -937,19 +937,20 @@ label {
 }
 
 .skeleton {
-  background: linear-gradient(90deg, var(--bg-card2) 25%, var(--bg-hover) 50%, var(--bg-card2) 75%);
+  background-color: var(--bg-card2);
+  background-image: linear-gradient(90deg, transparent 0%, rgba(15, 23, 42, 0.06) 50%, transparent 100%);
   background-size: 200% 100%;
-  animation: skeletonLoad 1.4s ease infinite;
+  animation: skeletonLoad 1.5s infinite linear;
   border-radius: 6px;
 }
 
 @keyframes skeletonLoad {
   0% {
-    background-position: 200% center;
+    background-position: 200% 0;
   }
 
   100% {
-    background-position: -200% center;
+    background-position: -200% 0;
   }
 }
 
@@ -1145,14 +1146,58 @@ label {
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
 
-  .card-stack,
-  .lead-card {
+  .card-stack-area {
+    min-height: calc(100vh - 180px);
+    /* Give enough room for the card natively */
+    margin-bottom: 20px;
+  }
+
+  .card-stack {
+    height: auto;
+    min-height: 480px;
     max-width: 100%;
   }
 
+  .card-stack-ghost.g1 {
+    height: 95%;
+    /* Falls back relative to min-height */
+  }
+
+  .card-stack-ghost.g2 {
+    height: 90%;
+  }
+
+  .lead-card {
+    position: relative;
+    /* On mobile let it dictate the height vertically instead of absolute */
+    max-width: 100%;
+    padding: 16px;
+    height: auto;
+    /* Full native height, no scrollbar! */
+    overflow: visible;
+    margin-bottom: 30px;
+  }
+
   .hero {
-    padding: 36px 16px 20px;
+    padding: 24px 12px 14px;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-sub {
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+
+  .search-panel {
+    padding: 16px;
+    margin-bottom: 20px;
   }
 
   .saved-drawer {
@@ -1166,10 +1211,23 @@ label {
 
   .card-title {
     font-size: 1.1rem;
+    margin-bottom: 6px;
   }
 
-  .lead-card {
-    padding: 18px;
+  .card-desc {
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+    -webkit-line-clamp: 2;
+  }
+
+  .card-actions {
+    padding-top: 12px;
+  }
+
+  .swipe-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
   }
 
   .stats-grid {

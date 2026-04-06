@@ -233,7 +233,7 @@ async def discover_leads(
         contacts_sql = """
             SELECT domain, entity_type, value, label
             FROM domain_contacts
-            WHERE domain = ANY($1) AND entity_type IN ('email','phone','linkedin')
+            WHERE domain = ANY($1) AND entity_type IN ('email','phone','linkedin','facebook','instagram','twitter','youtube','whatsapp')
             ORDER BY domain, entity_type, id
         """
         async with pool.acquire() as conn:

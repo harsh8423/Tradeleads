@@ -6,6 +6,13 @@ export const metadata: Metadata = {
   description: 'B2B contact & company data for trade, logistics and commodity sectors',
 }
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+}
+
 export default function RootLayout({
   children,
 }: {

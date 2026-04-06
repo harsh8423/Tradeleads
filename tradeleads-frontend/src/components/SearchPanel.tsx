@@ -46,8 +46,8 @@ export function SearchPanel(props: SearchPanelProps) {
                     </div>
                 </div>
 
-                <div style={{ display: "flex", gap: 10, marginTop: 16, alignItems: "center" }}>
-                    <button className="btn btn-primary" type="submit" disabled={loading} style={{ minWidth: 160 }}>
+                <div style={{ display: "flex", gap: 10, marginTop: 16, alignItems: "center", flexWrap: "wrap" }}>
+                    <button className="btn btn-primary" type="submit" disabled={loading} style={{ flex: "1 1 140px" }}>
                         {loading && isInitialSearchAction ? "🔄 Loading…" : "🚀 Discover Leads"}
                     </button>
 
@@ -56,6 +56,7 @@ export function SearchPanel(props: SearchPanelProps) {
                             className="btn btn-secondary"
                             type="button"
                             onClick={onReset}
+                            style={{ flex: "1 1 100px" }}
                         >
                             ✕ Reset
                         </button>
@@ -65,7 +66,7 @@ export function SearchPanel(props: SearchPanelProps) {
                         className="btn btn-secondary"
                         type="button"
                         onClick={openDrawer}
-                        style={{ marginLeft: "auto" }}
+                        style={{ flex: "1 1 140px" }}
                     >
                         🗂 Saved Leads
                         {savedCount > 0 && <span className="save-badge">{savedCount}</span>}
